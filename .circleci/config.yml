@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  aws-s3: circleci/aws-s3@3.0
 
 jobs:
   build:
@@ -14,6 +16,7 @@ jobs:
           command: |
             pwd
             ls -a
+            ~/
             python3 main.py
   test:
     working_directory: ~/circleci-python
