@@ -7,15 +7,40 @@ jobs:
     docker:
       - image: "circleci/python:3.6.4"
     steps:
+      - run: 
+          pwd
+          ls
       - checkout
+      - run:
+          name: Run main file
+          command: |
+            pwd
+            ls -a
+            python3 main.py
+      # - aws-s3/sync:
+      #     arguments: |
+      #       --acl public-read \
+      #       --cache-control "max-age=86400"
+      #     from: ~/project
+      #     to: 's3://subhamdash123/'
       - aws-s3/copy:
           arguments: |
             --acl public-read \
             --cache-control "max-age=86400"
           from: ./main.py
           to: 's3://subhamdash123/'
+  test:
+    working_directory: ~/circleci-python
+    docker:
+      - image: "circleci/python:3.6.4"
+    steps:
+      - checkout
+      - run: python3 main-test.py
 
 workflows:
   build_and_test:
     jobs:
       - build
+      - test:
+          requires:
+            - build
