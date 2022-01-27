@@ -25,6 +25,8 @@ jobs:
             pwd
             ls -a
             cat abc.txt
+            echo "------------"
+            echo "$content"
             python3 main.py
       # - aws-s3/sync:
       #     arguments: |
