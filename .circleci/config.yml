@@ -6,6 +6,9 @@ jobs:
     docker:
       - image: "circleci/python:3.6.4"
     steps:
+      - run: 
+          pwd
+          ls
       - checkout
       - run:
           name: Run main file
