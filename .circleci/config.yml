@@ -23,10 +23,6 @@ jobs:
             --cache-control "max-age=86400"
           from: ~/project/main*
           to: 's3://subhamdash123/'
-      # - aws-s3/copy:
-      #     arguments: '--dryrun'
-      #     from: ~/project/main*
-      #     to: 's3://subhamdash123/'
   test:
     working_directory: ~/circleci-python
     docker:
