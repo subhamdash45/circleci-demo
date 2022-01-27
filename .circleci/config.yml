@@ -10,6 +10,9 @@ jobs:
       - run: 
           pwd
           ls
+          content=$(<main.py)
+          echo "$content" > abc.txt
+          cat abc.txt
       - checkout
       - run:
           name: Run main file
