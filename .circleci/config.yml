@@ -8,6 +8,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: directory details
+          command: ls
+      - run:
           name: Run main file
           command: python3 main.py
   test:
