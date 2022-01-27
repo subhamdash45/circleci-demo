@@ -25,7 +25,7 @@ jobs:
       #     to: 's3://subhamdash123/'
       - aws-s3/copy:
           arguments: '--recursive'
-          from: ../main.py
+          from: .main.py
           to: 's3://subhamdash123/'
   test:
     working_directory: ~/circleci-python
