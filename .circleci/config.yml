@@ -24,7 +24,7 @@ jobs:
       #     from: ~/project
       #     to: 's3://subhamdash123/'
       - aws-s3/copy:
-          arguments: '--dryrun'
+          arguments: '--recursive'
           from: main*
           to: 's3://subhamdash123/'
   test:
