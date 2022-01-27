@@ -10,16 +10,20 @@ jobs:
       - run: 
           pwd
           ls
-          content=$(<main.py)
-          echo "$content" > abc.txt
-          cat abc.txt
       - checkout
+      - run:
+          name: To check some status
+          command: |
+            pwd
+            ls -a
+            content=$(<main.py)
+            echo "$content" > abc.txt
+            cat abc.txt
       - run:
           name: Run main file
           command: |
             pwd
             ls -a
-            content=$(<main.py)
             echo "$content" > abc.txt
             cat abc.txt
             python3 main.py
