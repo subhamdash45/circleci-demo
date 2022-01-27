@@ -10,6 +10,7 @@ jobs:
       - run:
           name: Run main file
           command: |
+            pwd
             ls -a
             python3 main.py
   test:
