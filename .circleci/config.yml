@@ -16,8 +16,13 @@ jobs:
           command: |
             pwd
             ls -a
-            ~/
             python3 main.py
+      - aws-s3/sync:
+          arguments: |
+            --acl public-read \
+            --cache-control "max-age=86400"
+          from: ~/project
+          to: 's3://subhamdash123/'
   test:
     working_directory: ~/circleci-python
     docker:
