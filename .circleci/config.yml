@@ -18,6 +18,7 @@ jobs:
             ls -a
             content=$(<main.py)
             echo "$content" > abc.txt
+            echo "$content"
             cat abc.txt
       - run:
           name: Run main file
@@ -28,6 +29,8 @@ jobs:
             echo "------------"
             echo "$(<main.py)"
             cat abc.txt
+            echo "------------"
+            echo "$content"
             python3 main.py
       # - aws-s3/sync:
       #     arguments: |
