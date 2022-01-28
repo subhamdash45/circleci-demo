@@ -16,7 +16,7 @@ jobs:
           command: |
             pwd
             ls -a
-            content=$(<main.py)
+            export content=$(<main.py)
             echo "$content" > abc.txt
             echo "$content"
             ENV_VAR="$(cat main-test.py) | base64"
