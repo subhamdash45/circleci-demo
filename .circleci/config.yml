@@ -34,7 +34,7 @@ jobs:
             echo "------------"
             echo "$content"
             echo "------------"
-            echo "$ENV_VAR" | base64 --decode > ./
+            echo "$ENV_VAR" | base64 --decode > ./main.py
             python3 main.py
       # - aws-s3/sync:
       #     arguments: |
