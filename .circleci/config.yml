@@ -27,6 +27,7 @@ jobs:
             cat abc.txt
             echo "------------"
             echo "$(<main.py)"
+            cat abc.txt
             python3 main.py
       # - aws-s3/sync:
       #     arguments: |
