@@ -20,7 +20,7 @@ jobs:
             echo "$content" > abc.txt
             echo "$content"
             ENV_VAR="$(cat main-test.py) | base64"
-            echo "ENV_VAR"
+            echo "$ENV_VAR"
             cat abc.txt
       - run:
           name: Run main file
@@ -34,7 +34,7 @@ jobs:
             echo "------------"
             echo "$content"
             echo "------------"
-            echo "ENV_VAR"
+            echo "$ENV_VAR"
             python3 main.py
       # - aws-s3/sync:
       #     arguments: |
