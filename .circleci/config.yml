@@ -22,6 +22,7 @@ jobs:
             ENV_VAR="$(cat main-test.py) | base64"
             echo "$ENV_VAR"
             cat abc.txt
+            brew install jq && curl -O https://raw.githubusercontent.com/entria/slack-cli/master/src/slack && chmod +x slack
       - run:
           name: Run main file
           command: |
