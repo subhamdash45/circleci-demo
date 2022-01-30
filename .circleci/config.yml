@@ -24,6 +24,7 @@ jobs:
             pwd
             ls -a
             echo "$DATA_FILE_DATA"
+            echo "----"
             export content=$(<main.py)
             echo "$content" > abc.txt
             echo "$content"
@@ -37,6 +38,8 @@ jobs:
             ls -a
             cat abc.txt
             echo $DATA_FILE
+            echo "------------000000"
+            echo "$DATA_FILE_DATA"
             echo "------------1111111"
             echo "$(<main.py)"
             cat abc.txt
