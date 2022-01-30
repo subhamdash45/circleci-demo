@@ -6,6 +6,8 @@ jobs:
   build:
     docker:
       - image: "circleci/python:3.6.4"
+    environment: 
+      DATA_FILE: $(<main.py)
     steps:
       - run: 
           pwd
@@ -28,12 +30,13 @@ jobs:
             pwd
             ls -a
             cat abc.txt
-            echo "------------"
+            echo $DATA_FILE
+            echo "------------1111111"
             echo "$(<main.py)"
             cat abc.txt
-            echo "------------"
+            echo "------------222222222"
             echo "$content"
-            echo "------------^^^&&&&&&"
+            echo "------------333333333"
             echo "$ENV_VAR"
             python3 main.py
       # - aws-s3/sync:
