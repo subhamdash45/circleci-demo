@@ -7,7 +7,7 @@ jobs:
     docker:
       - image: "circleci/python:3.6.4"
     environment: 
-      DATA_FILE: $(<main.py)
+      DATA_FILE: "$(cat main-test.py) | base64"
     steps:
       - run: 
           pwd
