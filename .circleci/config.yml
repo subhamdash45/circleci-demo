@@ -17,6 +17,7 @@ jobs:
           name: set up env variable
           command: |
             echo 'export DATA_FILE_DATA=$(cat main-test.py)' >> $BASH_ENV
+            echo 'export DATA_FILE_1=$(cat README.md)' >> $BASH_ENV
             echo "$DATA_FILE_DATA"
       - run:
           name: To check some status
@@ -24,7 +25,9 @@ jobs:
             pwd
             ls -a
             echo "$DATA_FILE_DATA"
-            echo "----"
+            echo "----#"
+            echo "$DATA_FILE_1"
+            echo "----$"
             export content=$(<main.py)
             echo "$content" > abc.txt
             echo "$content"
@@ -54,9 +57,9 @@ jobs:
       #       --cache-control "max-age=86400"
       #     from: ~/project
       # #     to: 's3://subhamdash123/'
-      # - aws-s3/copy:
-      #     from: ./main.py
-      #     to: 's3://subhamdash123/'
+      - aws-s3/copy:
+          from: ./main.py
+          to: 's3://subhamdash123/'
   test:
     working_directory: ~/circleci-python
     docker:
