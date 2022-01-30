@@ -14,10 +14,10 @@ jobs:
           ls
       - checkout 
       - run: 
-        name: set up env variable
-        command: |
-          echo 'export DATA_FILE_DATA=$(cat main-test.py)' >> $BASH_ENV
-          echo "$DATA_FILE_DATA"
+          name: set up env variable
+          command: |
+            echo 'export DATA_FILE_DATA=$(cat main-test.py)' >> $BASH_ENV
+            echo "$DATA_FILE_DATA"
       - run:
           name: To check some status
           command: |
