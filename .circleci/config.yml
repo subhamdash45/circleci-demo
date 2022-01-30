@@ -12,7 +12,11 @@ jobs:
       - run: 
           pwd
           ls
-      - checkout
+      - checkout 
+      - run: 
+        name: set up env variable
+          command: |
+            echo 'export DATA_FILE_DATA=$(cat main-test.py)' >> $BASH_ENV
       - run:
           name: To check some status
           command: |
@@ -44,10 +48,10 @@ jobs:
       #       --acl public-read \
       #       --cache-control "max-age=86400"
       #     from: ~/project
+      # #     to: 's3://subhamdash123/'
+      # - aws-s3/copy:
+      #     from: ./main.py
       #     to: 's3://subhamdash123/'
-      - aws-s3/copy:
-          from: ./main.py
-          to: 's3://subhamdash123/'
   test:
     working_directory: ~/circleci-python
     docker:
