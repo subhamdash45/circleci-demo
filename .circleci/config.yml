@@ -15,13 +15,15 @@ jobs:
       - checkout 
       - run: 
         name: set up env variable
-          command: |
-            echo 'export DATA_FILE_DATA=$(cat main-test.py)' >> $BASH_ENV
+        command: |
+          echo 'export DATA_FILE_DATA=$(cat main-test.py)' >> $BASH_ENV
+          echo "$DATA_FILE_DATA"
       - run:
           name: To check some status
           command: |
             pwd
             ls -a
+            echo "$DATA_FILE_DATA"
             export content=$(<main.py)
             echo "$content" > abc.txt
             echo "$content"
