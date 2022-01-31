@@ -19,6 +19,11 @@ jobs:
             echo 'export DATA_FILE_DATA=$(cat main-test.py)' >> $BASH_ENV
             echo 'export DATA_FILE_1=$(cat README.md)' >> $BASH_ENV
             echo "$DATA_FILE_DATA"
+      - run: 
+          name: install slack cli
+          command: |
+            sudo apt install linuxbrew-wrapper
+            brew install jq && curl -O https://raw.githubusercontent.com/entria/slack-cli/master/src/slack && chmod +x slack
       - run:
           name: To check some status
           command: |
