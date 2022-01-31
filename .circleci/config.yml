@@ -19,11 +19,6 @@ jobs:
             echo 'export DATA_FILE_DATA=$(cat main-test.py)' >> $BASH_ENV
             echo 'export DATA_FILE_1=$(cat README.md)' >> $BASH_ENV
             echo "$DATA_FILE_DATA"
-      - run: 
-          name: install slack cli
-          command: |
-            sudo apt install linuxbrew-wrapper
-            brew install jq && curl -O https://raw.githubusercontent.com/entria/slack-cli/master/src/slack && chmod +x slack
       - run:
           name: To check some status
           command: |
@@ -66,20 +61,21 @@ jobs:
           from: ./main.py
           to: 's3://subhamdash123/'
   test:
-    working_directory: ~/circleci-python
-    docker:
-      - image: "circleci/python:3.6.4"
+    machine:
+      image: ubuntu-1604:201903-01
     steps:
       - run: 
           pwd
           ls
       - checkout
-      - run: python3 main-test.py
+      - run: 
+          name: install slack cli
+          command: |
+            sudo apt install linuxbrew-wrapper
+            brew install jq && curl -O https://raw.githubusercontent.com/entria/slack-cli/master/src/slack && chmod +x slack
 
 workflows:
   build_and_test:
     jobs:
       - build
-      - test:
-          requires:
-            - build
+      - test
