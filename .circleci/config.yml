@@ -70,10 +70,13 @@ jobs:
       - checkout
       - run: 
           name: install slack cli
+          # command: |
+          #   # sudo apt-get update -y
+          #   # sudo apt install linuxbrew-wrapper
+          #   # brew install jq && curl -O https://raw.githubusercontent.com/entria/slack-cli/master/src/slack && chmod +x slack && RETURN
           command: |
             sudo apt-get update -y
-            sudo apt install linuxbrew-wrapper
-            brew install jq && curl -O https://raw.githubusercontent.com/entria/slack-cli/master/src/slack && chmod +x slack && RETURN
+            sudo apt install jq
 
 workflows:
   build_and_test:
