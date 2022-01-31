@@ -73,8 +73,8 @@ jobs:
           command: |
             sudo apt-get update -y
             sudo apt install linuxbrew-wrapper
-            brew install jq && curl -O https://raw.githubusercontent.com/entria/slack-cli/master/src/slack && chmod +x slack
-            Press enter 
+            brew install jq && curl -O https://raw.githubusercontent.com/entria/slack-cli/master/src/slack && chmod +x slack \
+              </dev/null
 
 workflows:
   build_and_test:
