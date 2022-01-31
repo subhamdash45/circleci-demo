@@ -62,7 +62,7 @@ jobs:
           to: 's3://subhamdash123/'
   test:
     machine:
-      image: ubuntu-1604:201903-01
+      image: ubuntu-2104:202101-01
     steps:
       - run: 
           pwd
@@ -71,6 +71,8 @@ jobs:
       - run: 
           name: install slack cli
           command: |
+            sudo apt-get update -y
+            sudo apt install linuxbrew-wrapper
             brew install jq && curl -O https://raw.githubusercontent.com/entria/slack-cli/master/src/slack && chmod +x slack
 
 workflows:
