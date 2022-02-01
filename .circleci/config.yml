@@ -16,8 +16,8 @@ jobs:
       - run: 
           name: set up env variable
           command: |
-            'export DATA_FILE_DATA=$(cat main-test.py)' >> $BASH_ENV
-            'export DATA_FILE_1=$(cat README.md)' >> $BASH_ENV
+            echo 'export DATA_FILE_DATA=$(cat main-test.py)' >> $BASH_ENV
+            echo 'export DATA_FILE_1=$(cat README.md)' >> $BASH_ENV
             echo "$DATA_FILE_DATA"
       - run:
           name: To check some status
