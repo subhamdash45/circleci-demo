@@ -9,9 +9,8 @@ jobs:
     steps:
       - checkout
       - aws-s3/copy:
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=86400"
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           from: ./main.py
           to: 's3://subhamdash123/'
 
