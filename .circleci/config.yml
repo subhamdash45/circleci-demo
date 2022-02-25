@@ -9,8 +9,8 @@ jobs:
     steps:
       - checkout
       - aws-s3/copy:
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          aws-access-key-id: AWS_ACCESS_KEY_ID_DEV
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY_DEV
           from: ./main.py
           to: 's3://subhamdash123/'
 
